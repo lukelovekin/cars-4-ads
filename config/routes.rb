@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'posts/index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'posts#index'
+  root "pages#home"
+  resources :users
 
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # delete post view and controllor
 end
