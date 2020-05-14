@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!
-  # before_action :check_user_profile, except: [:show]
 
   # GET /posts
   # GET /posts.json
@@ -78,21 +76,4 @@ class PostsController < ApplicationController
       params.require(:post).permit(:body, :price)
     end
 
-        def check_user_profile
-        if user_signed_in?
-            if !current_user.first_name || !current_user.username || !current_user.suburb || !current_user.state
-                redirect_to edit_user_path(current_user)
-            end
-        end
-    end
-
-    def after_sign_in_path_for(resource)
-        if user_signed_in?
-            if !current_user.first_name || !current_user.username || !current_user.suburb || !current_user.state
-               return edit_user_path(current_user)
-            else
-                return root_path
-            end
-        end
-    end
 end

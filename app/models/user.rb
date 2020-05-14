@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
-  validates :first_name, :username, :suburb, :state, presence: true
+  # validates :first_name, :username, :suburb, :state, presence: true
+  
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
