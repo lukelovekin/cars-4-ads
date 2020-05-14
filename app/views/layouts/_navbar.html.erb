@@ -1,0 +1,21 @@
+<section id="T1"><%= link_to "Cars4Ads", root_path%></section>
+
+<section id="T2"><%= link_to "Advertisors" %>
+    <%= link_to "Drivers" %>
+</section>
+
+<section id="T3"><%= link_to "Search" %>
+    <% if user_signed_in?%>
+        <%= link_to "Profile", user_path(current_user) %>
+        <%= link_to "Post an Ad", new_post_path %>
+    <%end%>
+</section>
+
+<% if user_signed_in?%>
+<section id="T4"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></section>
+<% else %>
+<section id="T5"><%= link_to "Sign In", user_session_path %>
+<%= link_to "Sign Up", new_user_registration_path %>
+</section>
+<%end%>
+
