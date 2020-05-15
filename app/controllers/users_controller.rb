@@ -40,11 +40,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if !current_user.first_name || !current_user.username || !current_user.suburb || !current_user.state
-      return  redirect_to edit_user_path(current_user)
-    end
     respond_to do |format|
-      
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
