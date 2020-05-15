@@ -20,6 +20,10 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    # render plain: params
+    unless user_signed_in? && current_user.id == @post.user_id 
+      redirect_to post_path, notice: "Not yours to edit"
+    end 
   end
 
   # POST /posts
