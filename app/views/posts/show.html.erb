@@ -2,18 +2,42 @@
 
 <p>
   <strong>User:</strong>
-  <%= @post.user_id %>
+  <%= @post.user.full_name %>
 </p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @post.body %>
+  <strong>Phone Number:</strong>
+  <%= @post.user.phone_number %>
 </p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @post.user.age %>
+</p>
+
+<p>
+  <strong>Suburb:</strong>
+  <%= @post.user.suburb %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @post.user.state %>
+</p>
+<p>
 
 <p>
   <strong>Price:</strong>
   <%= @post.price %>
 </p>
+
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+      <%# t.string :username %>
+      <%# t.string :suburb %>
+      <%# t.string :state %>
 
 <p>
 <%# <%= image_tag @post.picture, width: "200" if @post.picture.attached? %>
@@ -28,7 +52,7 @@
 <p>
          <% @post.comments.each do |comment| %>
       <tr><%= @post.created_at %></tr>
-      <tr><%= comment.user_id %></tr>
+     <tr><%= comment.user.first_name %></tr> 
       <tr><%=comment.body%></tr>
       <br>
       <% end %>
