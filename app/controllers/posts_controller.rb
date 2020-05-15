@@ -12,13 +12,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    # render plain: params
-    # @comment = Comment.where(post_id: params[:post_id])
-    # @comment.first_name = 
-    # @comment = Comment.find(params[@comment_id])
-    # @comment.post = Post.find(params[:post_id])
-    # @comment.post_id = params[:post_id]
-    # @comment.user_id = current_user.id
 
   end
 
