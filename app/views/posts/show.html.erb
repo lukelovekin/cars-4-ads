@@ -16,7 +16,7 @@
 </p>
 
 <p>
-<%= image_tag @post.picture, width: "200" if @post.picture.attached? %>
+<%# <%= image_tag @post.picture, width: "200" if @post.picture.attached? %>
 </p>
 <% if user_signed_in? && current_user.id == @post.user_id %> 
 <%= link_to 'Edit', edit_post_path(@post) %> |
