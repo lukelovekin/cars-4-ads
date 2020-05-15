@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :get_comment, only: [:show]
 
   # GET /posts
   # GET /posts.json
@@ -11,6 +12,14 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    # render plain: params
+    # @comment = Comment.where(post_id: params[:post_id])
+    # @comment.first_name = 
+    # @comment = Comment.find(params[@comment_id])
+    # @comment.post = Post.find(params[:post_id])
+    # @comment.post_id = params[:post_id]
+    # @comment.user_id = current_user.id
+
   end
 
   # GET /posts/new
@@ -78,6 +87,10 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:body, :price)
+    end
+
+    def get_comment
+      # @comment = Comment.find(params[@comment_id])
     end
 
 end

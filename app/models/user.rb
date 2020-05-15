@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   validates :first_name, :username, :suburb, :state, presence: true, :on => :update
   
   

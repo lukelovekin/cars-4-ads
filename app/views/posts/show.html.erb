@@ -21,4 +21,27 @@
 <% if user_signed_in? && current_user.id == @post.user_id %> 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%end%>
+
+<h4>Comments</h4>
+
+<div>
+<p>
+         <% @post.comments.each do |comment| %>
+      <tr><%= @post.created_at %></tr>
+      <tr><%= comment.user_id %></tr>
+      <tr><%=comment.body%></tr>
+      <br>
+      <% end %>
+</p>
+</div>
+
+<%=form_with(model: Comment.new, local: true, url: "/posts/#{@post.id}/comments/") do |form| %>
+<%# <%= form.label :body %>
+<%= form.text_field :body %>
+<%= form.submit %>
+
+<%end %>
+
 <%= link_to 'Back', root_path %>
+
+

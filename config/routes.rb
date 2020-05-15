@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :posts
+
+ 
+  resources :posts do
+    post '/comments', to: 'comments#create', as: 'comments'
+    patch '/comments/:comment_id', to: 'comments#update'
+    delete '/comments/:comment_id', to: 'comments#destroy'
+  end
+ 
   devise_for :users, controllers: { registrations: "registrations" }
   resources :users, except: [:index, :new]
 root "posts#index"
