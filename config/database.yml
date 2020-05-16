@@ -22,12 +22,16 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
   port: 5432
-  username: <%= Rails.application.credentials.dig(:db, :username) %>
-  password: <%= Rails.application.credentials.dig(:db, :password) %>
+  username: postgres
+  password: luke
 
 development:
   <<: *default
   database: cars4ads_development
+  host: localhost
+  port: 5432
+  username: postgres
+  password: luke
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -62,6 +66,10 @@ development:
 test:
   <<: *default
   database: cars4ads_test
+  host: localhost
+  port: 5432
+  username: postgres
+  password: luke
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,10 +88,10 @@ test:
 # You can use this database configuration with:
 #
 #   production:
-#     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: cars4ads_production
   username: cars4ads
   password: <%= ENV['CARS4ADS_DATABASE_PASSWORD'] %>
