@@ -22,8 +22,8 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
   port: 5432
-  username: <%= Rails.application.credentials.dig(:db, :username) %>
-  password: <%= Rails.application.credentials.dig(:db, :password) %>
+  username: postgres
+  password: luke
 
 development:
   <<: *default
@@ -80,10 +80,10 @@ test:
 # You can use this database configuration with:
 #
 #   production:
-#     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: cars4ads_production
   username: cars4ads
   password: <%= ENV['CARS4ADS_DATABASE_PASSWORD'] %>
