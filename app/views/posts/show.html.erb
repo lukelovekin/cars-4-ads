@@ -54,6 +54,7 @@
       <tr><%= @post.created_at %></tr>
      <tr><%= comment.user.first_name %></tr> 
       <tr><%=comment.body%></tr>
+      <%= link_to "Delete", destroy_comment_path%>
       <br>
       <% end %>
 </p>
