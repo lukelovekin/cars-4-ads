@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments
-  has_many_attached :pictures
+  has_one_attached :post_pic
 end

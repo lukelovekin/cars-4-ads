@@ -15,10 +15,10 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.user_id %></td>
+        <td><%= post.user.full_name %></td>
         <td><%= post.body %></td>
-        <td><%= post.price %></td>
-        <%# <td><%= image_tag @post.picture, width: "200" if @post.picture.attached? %></td> 
+        <td>$<%= post.price %></td>
+        <td><%= image_tag post.post_pic, width: "200" if post.post_pic.attached? %></td> 
         <td><%= link_to 'Show', post %></td>
          <% if user_signed_in? && current_user.id == post.user_id %> 
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
