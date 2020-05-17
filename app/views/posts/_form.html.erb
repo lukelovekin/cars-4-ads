@@ -21,9 +21,9 @@
     <%= form.text_field :price %>
   </div>
 
-  <div>
-            <%= form.label :picture %>
-            <%= form.file_field :picture, accept: "image/png,image/gif,image/jpeg, image/jpg, image/webp" %>
+  <div class="field">
+    <%= form.label :post_pics %>
+    <%= form.file_field :post_pics, multiple: true %>
   </div> 
 
   <div class="actions">

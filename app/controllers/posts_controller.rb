@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :get_comment, only: [:show]
+  
+  
 
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
     @user = User.all
+
   end
 
   # GET /posts/1
@@ -33,7 +35,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    # @post.picture.attach(params[:post][:picture])
+    @post.post_pics.attach(params[:post][:post_pics])
 
     respond_to do |format|
       if @post.save
@@ -49,7 +51,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    @post.picture.attach(params[:post][:picture])
+    @post.post_pics.attach(params[:post][:post_pics])
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -64,9 +66,10 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post.destroy
+
+     @post.delete
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -77,13 +80,14 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
+    def comment_params
+      params.require(:comment).permit(:body)
+    end
+
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:body, :price)
     end
 
-    def get_comment
-      # @comment = Comment.find(params[@comment_id])
-    end
 
 end

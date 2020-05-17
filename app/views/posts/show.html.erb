@@ -39,11 +39,14 @@
       <%# t.string :suburb %>
       <%# t.string :state %>
 
+<% @post.post_pics.each do |pic| %>
 <p>
-<%# <%= image_tag @post.picture, width: "200" if @post.picture.attached? %>
+<%= image_tag pic, width: "200", height: "200" %>
 </p>
+<% end %>
+
 <% if user_signed_in? && current_user.id == @post.user_id %> 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Edit', edit_post_path(@post) %> 
 <%end%>
 
 <h4>Comments</h4>
@@ -52,9 +55,11 @@
 <p>
          <% @post.comments.each do |comment| %>
       <tr><%= @post.created_at %></tr>
-     <tr><%= comment.user.first_name %></tr> 
+      <tr><%= comment.user.first_name %></tr> 
       <tr><%=comment.body%></tr>
-      <%= link_to "Delete", destroy_comment_path%>
+        <% if user_signed_in? && current_user.id == comment.user_id %>
+          <%= link_to "Delete", "/posts/#{@post.id}/comments/#{comment.id}", method: :delete %>
+         <% end%>
       <br>
       <% end %>
 </p>

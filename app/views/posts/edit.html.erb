@@ -1,5 +1,14 @@
 <h1>Editing Post</h1>
 
+<% @post.post_pics.each do |pic| %>
+<p>
+<%= image_tag pic, width: "200", height: "200" %>
+</p>
+<p>
+<%= link_to "Delete", "/posts/#{@post.id}", method: :delete %>
+</p>
+<% end %>
+
 <%= render 'form', post: @post %>
 
 <%= link_to 'Show', @post %> |
