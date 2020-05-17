@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :posts do
     post '/comments', to: 'comments#create', as: 'comments'
     patch '/comments/:comment_id', to: 'comments#update'
-    delete '/comments/:comment_id', to: 'comments#destroy'
+    delete '/comments/:comment_id', to: 'comments#destroy', as: "destroy_comment"
   end
  
   devise_for :users, controllers: { registrations: "registrations" }

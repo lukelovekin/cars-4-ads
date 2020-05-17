@@ -32,6 +32,9 @@ private
 
 end
 
+def get_comment
+  @comment = Comment.find(params[:comment_id])
+end
 
 
 
