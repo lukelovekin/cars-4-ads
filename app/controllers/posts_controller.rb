@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.post_pic.attach(params[:post][:post_pic])
+    @post.post_pics.attach(params[:post][:post_pics])
 
     respond_to do |format|
       if @post.save
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    @post.post_pic.attach(params[:post][:post_pic])
+    @post.post_pics.attach(params[:post][:post_pics])
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -66,20 +66,18 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    # @comment = Comment.find(params[])
-    # @comment.delete
-    # redirect_to post_path(@post.id)
-    # respond_to do |format|
-    #   format.html { redirect_to post_path(@post.id), notice: 'Post was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
+
+     @post.delete
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
-      
     end
 
     def comment_params
