@@ -31,7 +31,7 @@ private
 
         # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:user, :post, :content, :edited)
+      params.require(:comment).permit(:user, :post, :body)
     end
 
 end

@@ -18,6 +18,7 @@
         <td><%= post.user.full_name %></td>
         <td><%= post.body %></td>
         <td>$<%= post.price %></td>
+
         <td><% post.post_pics.each do |pic| %>
           <%= image_tag pic, width: "200", height: "200" %>
           <% end %></td> 
