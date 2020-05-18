@@ -1,37 +1,35 @@
+
 <p id="notice"><%= notice %></p>
 <%# <%= render "devise/shared/links" %>
-<h1>Posts</h1>
+<h3>All Adds</h3>
 
 <table>
   <thead>
-    <tr>
-      <th>User</th>
-      <th>Body</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
+
   </thead>
 
-  <tbody>
+  <div class="jumbotron">
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.user.full_name %></td>
-        <td><%= post.body %></td>
-        <td>$<%= post.price %></td>
-
-        <td><% post.post_pics.each do |pic| %>
+    
+        <% post.post_pics.each do |pic| %>
           <%= image_tag pic, width: "200", height: "200" %>
-          <% end %></td> 
-        <td><%= link_to 'Show', post %></td>
-         <% if user_signed_in? && current_user.id == post.user_id %> 
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to "Delete", "/posts/#{post.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
 
-        <%=  %>
+        <p><%= post.user.full_name %></td>
+          <%= post.price %></td>
+          <%= post.body %></td>
+        </p>
+      <div>
+        <%= link_to 'Show', post %>
+         <% if user_signed_in? && current_user.id == post.user_id %> 
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to "Delete", "/posts/#{post.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end%>
+      </div>
+
       </tr>
     <% end %>
-  </tbody>
+  </div>
 </table>
 
 <br>
