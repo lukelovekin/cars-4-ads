@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root "posts#index"
 
    get '/about', to: 'pages#about', as: 'about'
+   get '/advertiser', to: 'pages#advertiser', as:  'advertiser'
+   get '/driver', to: 'pages#driver', as: 'driver'
  
   resources :posts do
     post '/comments', to: 'comments#create', as: 'comments'

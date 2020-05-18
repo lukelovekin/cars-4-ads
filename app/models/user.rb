@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  validates :age, numericality: { only_integer: true }
+  validates :username, length: { maximum: 15 }
   validates :first_name, :username, :suburb, :state, presence: true, :on => :update
   
   
