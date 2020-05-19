@@ -65,12 +65,14 @@
 </p>
 </div>
 
-<%=form_with(model: Comment.new, local: true, url: "/posts/#{@post.id}/comments/") do |form| %>
-<%# <%= form.label :body %>
-<%= form.text_field :body %>
-<%= form.submit %>
+<% if user_signed_in? %>
+  <%=form_with(model: Comment.new, local: true, url: "/posts/#{@post.id}/comments/") do |form| %>
+  <%# <%= form.label :body %>
+  <%= form.text_field :body %>
+  <%= form.submit %>
+  <%end %>
+  <% end %>
 
-<%end %>
 
 <%= link_to 'Back', root_path %>
 
