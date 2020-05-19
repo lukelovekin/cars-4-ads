@@ -3,37 +3,38 @@
 <%# <%= render "devise/shared/links" %>
 <h3>All Adds</h3>
 
-<table>
-  <thead>
 
-  </thead>
-
-  <div class="jumbotron">
-    <% @posts.each do |post| %>
-    
-        <% post.post_pics.each do |pic| %>
-          <%= image_tag pic, width: "200", height: "200" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-lg-12">
+        <% @posts.each do |post| %>
+        <div class="jumbotron">
+          <h3><%= "#{post.user.suburb}, #{post.user.state}" %></h3>
+            <%= image_tag post.post_pics[0], width: "75%", height: "75%" %> 
+            <br></br>            
+          <p><%= post.user.full_name %></p>
+          <p><%= "$#{post.price} a month" %></p>
+          <%# <p><%= post.body %></p> 
+        <div>
+              <button type="submit" class="btn-primary btn-lg"><%= link_to 'Show', post %></button>
+              <% if user_signed_in? && current_user.id == post.user_id %> 
+              <button type="submit" class="btn-primary btn-lg"><%= link_to 'Edit', edit_post_path(post)%></button>
+              <button type="submit" class="btn-primary btn-lg"><%= link_to "Delete", "/posts/#{post.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
+              <%end%>
+            </div>
+          </div>
           <% end %>
+      </div> 
+    </div>      
+  </div>        
 
-        <p><%= post.user.full_name %></td>
-          <%= post.price %></td>
-          <%= post.body %></td>
-        </p>
-      <div>
-        <%= link_to 'Show', post %>
-         <% if user_signed_in? && current_user.id == post.user_id %> 
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to "Delete", "/posts/#{post.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%end%>
-      </div>
-
-      </tr>
-    <% end %>
-  </div>
-</table>
-
-<br>
 <% if user_signed_in? %>
-<%= link_to 'New Post', new_post_path %>
+
 <% end %>
+
+
+
+
+ 
+
 

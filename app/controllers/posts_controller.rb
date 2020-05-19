@@ -73,7 +73,6 @@ class PostsController < ApplicationController
         format.json { head :no_content }
       end
     end
-
   end
 
   private
@@ -90,6 +89,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:body, :price)
     end
-
 
 end

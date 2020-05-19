@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
   root "posts#index"
-
+  # post 'job_listings/:id', 
    get '/about', to: 'pages#about', as: 'about'
    get '/advertiser', to: 'pages#advertiser', as:  'advertiser'
    get '/driver', to: 'pages#driver', as: 'driver'

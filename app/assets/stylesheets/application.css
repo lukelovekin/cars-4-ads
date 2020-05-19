@@ -14,3 +14,41 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    min-height: 100%;
+}
+
+nav {
+    /* position: sticky; */
+    background-color: #ffa150;
+    font-size: 1.25vw;
+}
+
+.jumbotron{
+    background-color:#F0F0F0;
+    
+}
+.btn-primary{
+    border: 0;
+    background-color: #bfbebd;
+
+}
+
+p {
+    font-size: 25px;
+}
+
+
+
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+
+  }
+@media (max-width: 768px) {
+  
+}
+@media (max-width: 576px) {
+  
+}
