@@ -1,32 +1,30 @@
 
-<p id="notice"><%= notice %></p>
-<%# <%= render "devise/shared/links" %>
+
 <h3>All Adds</h3>
-
-
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-lg-12">
+        <p id="notice"><%= notice %></p>
         <% @posts.each do |post| %>
         <div class="jumbotron">
           <h3><%= "#{post.user.suburb}, #{post.user.state}" %></h3>
           
-            
-            <%= image_tag post.post_pics[0], width: "75%", height: "75%" if post.post_pics.attached? %> 
+            <%= image_tag post.post_pics[0], width: "75%", height: "75%" if post.post_pics.attached? %>
 
-            <br></br>            
+            <br>           
           <p><%= post.user.full_name %></p>
           <p><%= "$#{post.price} a month" %></p>
-          <%# <p><%= post.body %></p> 
-        <div>
+          <%# <p><%= post.body %> 
+            <div>
               <button type="submit" class="btn-primary btn-lg"><%= link_to 'Show', post %></button>
+
               <% if user_signed_in? && current_user.id == post.user_id %> 
-              <button type="submit" class="btn-primary btn-lg"><%= link_to 'Edit', edit_post_path(post)%></button>
-              <button type="submit" class="btn-primary btn-lg"><%= link_to "Delete", "/posts/#{post.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
+                <button type="submit" class="btn-primary btn-lg"><%= link_to 'Edit', edit_post_path(post)%></button>
+                <button type="submit" class="btn-primary btn-lg"><%= link_to "Delete", "/posts/#{post.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
               <%end%>
             </div>
-          </div>
-          <% end %>
+        </div>
+        <% end %>
       </div> 
     </div>      
   </div>        

@@ -29,7 +29,6 @@ private
       @comment = Comment.find(params[:comment_id])
     end
 
-        # Only allow a list of trusted parameters through.
     def comment_params
       params.require(:comment).permit(:user, :post, :body)
     end

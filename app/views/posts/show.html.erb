@@ -35,43 +35,39 @@
   <%= @post.body %>
 </p>
 
-      <%# t.string :username %>
-      <%# t.string :suburb %>
-      <%# t.string :state %>
-
 <% @post.post_pics.each do |pic| %>
-<p>
-<%= image_tag pic, width: "200", height: "200" %>
-</p>
+  <p>
+  <%= image_tag pic, width: "400", height: "400" %>
+  </p>
 <% end %>
 
 <% if user_signed_in? && current_user.id == @post.user_id %> 
-<%= link_to 'Edit', edit_post_path(@post) %> 
+  <%= link_to 'Edit', edit_post_path(@post) %> 
 <%end%>
 
 <h4>Comments</h4>
 
 <div>
-<p>
-         <% @post.comments.each do |comment| %>
+  <p>
+    <% @post.comments.each do |comment| %>
       <tr><%= @post.created_at %></tr>
       <tr><%= comment.user.first_name %></tr> 
       <tr><%=comment.body%></tr>
         <% if user_signed_in? && current_user.id == comment.user_id %>
           <%= link_to "Delete", "/posts/#{@post.id}/comments/#{comment.id}", method: :delete %>
-         <% end%>
+        <% end%>
       <br>
-      <% end %>
-</p>
+    <% end %>
+  </p>
 </div>
 
 <% if user_signed_in? %>
   <%=form_with(model: Comment.new, local: true, url: "/posts/#{@post.id}/comments/") do |form| %>
-  <%# <%= form.label :body %>
-  <%= form.text_field :body %>
-  <%= form.submit %>
+    <%= form.label :body%>%
+    <%= form.text_field :body %>
+    <%= form.submit %>
   <%end %>
-  <% end %>
+<% end %>
 
 
 <%= link_to 'Back', root_path %>

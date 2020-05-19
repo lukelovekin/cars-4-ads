@@ -2,13 +2,13 @@
     <nav class="navbar navbar-fixed-bottom">
         <div class="container-fluid">
 
-            <section id="T1"><%= link_to image_tag("logo-2.png" ), root_path%></section>
+            <section><%= link_to image_tag("logo-2.png" ), root_path%></section>
 
-            <section id="T2"><%= link_to "Advertisers", advertiser_path %> |
+            <section><%= link_to "Advertisers", advertiser_path %> |
                 <%= link_to "Drivers", driver_path %>
             </section>
 
-            <section id="T3">
+            <section>
             <%# <%= link_to "Search" %> 
                 <% if user_signed_in?%>
                     | <%= link_to "Profile", user_path(current_user) %>|
@@ -18,18 +18,12 @@
             </section>
 
             <% if user_signed_in?%>
-            <section id="T4"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></section>
+            <section><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></section>
             <% else %>
-            <section id="T5"><%= link_to "Sign In", user_session_path %> |
+            <section><%= link_to "Sign In", user_session_path %> |
             <%= link_to "Sign Up", new_user_registration_path %>
             </section>
             <%end%>'
         </div>    
     </nav> 
-
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-
-</div>    
 
