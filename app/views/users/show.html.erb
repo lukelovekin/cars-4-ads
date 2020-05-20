@@ -1,41 +1,45 @@
-<p id="notice"><%= notice %></p>
-<p>
-<h1>My Profile</h1>
-</p>
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+<div class="container">
+  <div class="jumbotron">
+      <p id="notice"><%= notice %></p>
+      <p>
+      <h1>My Profile</h1>
+      </p>
+      <p>
+        <strong>First name:</strong>
+        <%= @user.first_name %>
+      </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+      <p>
+        <strong>Last name:</strong>
+        <%= @user.last_name %>
+      </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
+      <p>
+        <strong>Age:</strong>
+        <%= @user.age %>
+      </p>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @user.phone_number %>
-</p>
+      <p>
+        <strong>Phone number:</strong>
+        <%= @user.phone_number %>
+      </p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+      <p>
+        <strong>Username:</strong>
+        <%= @user.username %>
+      </p>
 
-<p>
-  <strong>Suburb:</strong>
-  <%= @user.suburb %>
-</p>
+      <p>
+        <strong>Suburb:</strong>
+        <%= @user.suburb %>
+      </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @user.state %>
-</p>
+      <p>
+        <strong>State:</strong>
+        <%= @user.state %>
+      </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Home', root_path %>
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Home', root_path %>
+  </div>
+</div>  
