@@ -5,3 +5,4 @@ class Post < ApplicationRecord
   validates :post_pics, length: {maximum: 9}
   validates :price, numericality: { only_integer: false }
 end
+

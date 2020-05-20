@@ -14,6 +14,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    unless user_signed_in? && current_user.id == @user.id
+      redirect_to root_path, notice: "Not yours to edit"
+    end 
   end
 
   # POST /users
