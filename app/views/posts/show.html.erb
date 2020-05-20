@@ -56,7 +56,7 @@
         <% if user_signed_in? && current_user.id == comment.user_id %>
           <%= link_to "Delete", "/posts/#{@post.id}/comments/#{comment.id}", method: :delete %>
         <% end%>
-      <br>
+      <br><br><br>  
     <% end %>
   </p>
 </div>
