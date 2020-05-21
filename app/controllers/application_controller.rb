@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
      before_action :check_user_profile, except: [:edit, :update, :destroy, :create]
 
+
     def check_user_profile
         if user_signed_in?
             if !current_user.first_name || !current_user.username || !current_user.suburb || !current_user.state

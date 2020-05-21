@@ -4,5 +4,6 @@ class Post < ApplicationRecord
   has_many_attached :post_pics
   validates :post_pics, length: {maximum: 9}
   validates :price, numericality: { only_integer: false }
+  validates :body, presence: true
 end
 

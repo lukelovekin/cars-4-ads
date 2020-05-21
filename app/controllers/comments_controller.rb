@@ -2,8 +2,7 @@ class CommentsController < ApplicationController
 before_action :get_comment, only: [:show, :destroy]
 
   def create
-    @comment = Comment.new(comment_params)
-
+    @comment = Comment.new(comment_params) 
     @comment.post = Post.find(params[:post_id])
     @comment.post_id = params[:post_id]
     @comment.user_id = current_user.id
