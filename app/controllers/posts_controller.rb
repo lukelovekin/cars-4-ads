@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     #paginate description under paginate method at the bottom of the screen
-    @posts = paginate.order(created_at: :asc).preload(:user)
+    @posts = paginate.order(created_at: :desc).preload(:user)
   end
 
   # GET /posts/1

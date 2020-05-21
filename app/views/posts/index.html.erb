@@ -9,7 +9,7 @@
         <div class="jumbotron">
           <h3><%= "#{post.user.suburb}, #{post.user.state}" %></h3>
           
-            <%= image_tag post.post_pics[0], width: "75%", height: "75%" if post.post_pics.attached? %>
+            <%= image_tag post.post_pics.first, width: "75%", height: "75%" if post.post_pics.attached? %>
 
             <br>           
           <p><%= post.user.full_name %></p>
