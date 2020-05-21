@@ -25,6 +25,11 @@
     <%= form.file_field :post_pics, multiple: true %>
   </div> 
 
+  <div class="field">
+    <%= form.label :Are_you_a_driver %>
+    <%= form.check_box :car_owner %>
+  </div> 
+
   <div class="actions">
     <%= form.submit %>
   </div>

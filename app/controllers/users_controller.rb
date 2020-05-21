@@ -19,15 +19,10 @@ class UsersController < ApplicationController
     end 
   end
 
-  # POST /users
-  # POST /users.json
   def create
     
-    # @user = User.find(current_user.id)
     @user = User.new(user_params)
-    # @user.save
-
-
+  
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'Please create a Profile.' }

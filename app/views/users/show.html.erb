@@ -39,6 +39,7 @@
         <%= @user.state %>
       </p>
 
+      <%= link_to 'Account', edit_user_registration_path(@user) %>
       <%= link_to 'Edit', edit_user_path(@user) %> |
       <%= link_to 'Home', root_path %>
   </div>

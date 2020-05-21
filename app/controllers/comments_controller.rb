@@ -11,7 +11,6 @@ before_action :get_comment, only: [:show, :destroy]
   end
 
   def show
-    # @comment = Comment.find(params[:comment_id])
   end
 
   def update
