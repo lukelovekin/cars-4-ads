@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    #paginate description under paginate method at the bottom of the screen
     @posts = paginate.order(created_at: :asc).preload(:user)
   end
 
@@ -96,6 +97,7 @@ class PostsController < ApplicationController
     #pageinate is a ruby gem that creates new pages once page limits have been reached
     #put it in its own method to save repitition
     def paginate
+      #Post.paginate == Post.all but gemified
       Post.paginate(page: params[:page])
     end
 end
