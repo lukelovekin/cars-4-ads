@@ -79,7 +79,7 @@ class PostsController < ApplicationController
 
   #The Drivers ads only page
   def drivers
-    @posts = Post.paginate.where("car_owner = true")
+    @posts = paginate.where("car_owner = true")
   end
 
 

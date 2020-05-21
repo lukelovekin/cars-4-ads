@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  self.per_page = 2
+  self.per_page = 5
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many_attached :post_pics
