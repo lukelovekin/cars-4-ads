@@ -6,8 +6,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(created_at: :desc).preload(:user)
-    # @user = User.all
+    @posts = paginate.order(created_at: :asc).preload(:user)
   end
 
   # GET /posts/1
@@ -74,12 +73,12 @@ class PostsController < ApplicationController
 
   #The Advertisers ads only page
   def advertisers
-    @posts = Post.where("car_owner = false")
+    @posts = paginate.where("car_owner = false")
   end
 
   #The Drivers ads only page
   def drivers
-    @posts = Post.where("car_owner = true")
+    @posts = Post.paginate.where("car_owner = true")
   end
 
 
@@ -92,5 +91,11 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:body, :price, :car_owner)
+    end
+
+    #pageinate is a ruby gem that creates new pages once page limits have been reached
+    #put it in its own method to save repitition
+    def paginate
+      Post.paginate(page: params[:page])
     end
 end

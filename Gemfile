@@ -58,3 +58,5 @@ gem "devise", "~> 4.7"
 gem "aws-sdk-s3", "~> 1.64"
 
 gem "favicon", "~> 0.1.1"
+
+gem "will_paginate", "~> 3.3"
